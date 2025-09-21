@@ -83,6 +83,17 @@ class IssueCreate(BaseModel):
     location_long: float
     address: Optional[str] = None
 
+class IssueCreateWithUser(BaseModel):
+    title: str
+    description: str
+    category_id: str
+    image_base64: Optional[str] = None
+    voice_base64: Optional[str] = None
+    location_lat: float
+    location_long: float
+    address: Optional[str] = None
+    user_id: str
+
 class Vote(BaseModel):
     id: Optional[str] = Field(default_factory=lambda: str(uuid.uuid4()))
     issue_id: str
