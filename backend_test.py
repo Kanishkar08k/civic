@@ -248,13 +248,13 @@ class CIRSBackendTester:
         }
         
         try:
-            # Create multipart form data with JSON and form fields
-            files = {
-                'issue_data': (None, json.dumps(issue_data), 'application/json'),
-                'user_id': (None, self.test_user["id"])
+            # Send as form data with JSON string
+            data = {
+                'user_id': self.test_user["id"]
             }
             response = self.session.post(f"{self.base_url}/issues", 
-                                       files=files, 
+                                       json=issue_data,
+                                       data=data, 
                                        timeout=TIMEOUT)
             if response.status_code == 200:
                 data = response.json()
