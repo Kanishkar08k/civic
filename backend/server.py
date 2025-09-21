@@ -221,14 +221,14 @@ async def init_categories():
 
 # Issues
 @api_router.post("/issues", response_model=Dict[str, Any])
-async def create_issue(issue_data: IssueCreate, user_id: str = Form(...)):
+async def create_issue(issue_data: IssueCreateWithUser):
     # Transcribe voice if provided
     voice_transcript = None
     if issue_data.voice_base64:
         voice_transcript = await transcribe_audio(issue_data.voice_base64)
     
     issue = Issue(
-        user_id=user_id,
+        user_id=issue_data.user_id,
         title=issue_data.title,
         description=issue_data.description,
         category_id=issue_data.category_id,
