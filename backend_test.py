@@ -456,11 +456,9 @@ class CIRSBackendTester:
         
         # Test adding a vote
         try:
-            files = {
-                'user_id': (None, self.test_user["id"])
-            }
+            vote_data = {"user_id": self.test_user["id"]}
             response = self.session.post(f"{self.base_url}/issues/{issue_id}/vote", 
-                                       files=files, timeout=TIMEOUT)
+                                       json=vote_data, timeout=TIMEOUT)
             if response.status_code == 200:
                 data = response.json()
                 if data.get("success") and data.get("voted") == True:
