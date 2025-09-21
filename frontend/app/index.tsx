@@ -394,7 +394,7 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.title}>Civic Issues</Text>
         <View style={styles.headerActions}>
-          <TouchableOpacity style={styles.headerButton} onPress={() => Alert.alert('Info', 'Report feature coming soon!')}>
+          <TouchableOpacity style={styles.headerButton} onPress={() => router.push('/report')}>
             <Ionicons name="add" size={24} color="#007AFF" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.headerButton} onPress={handleLogout}>
