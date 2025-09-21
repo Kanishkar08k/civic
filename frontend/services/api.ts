@@ -90,44 +90,35 @@ class ApiService {
   async createIssue(data: {
     title: string;
     description: string;
-    category_id: string;
-    image_base64?: string;
-    voice_base64?: string;
-    location_lat: number;
-    location_long: number;
+    categoryId: string;
+    imageBase64?: string;
+    voiceBase64?: string;
+    locationLat: number;
+    locationLong: number;
     address?: string;
-    user_id: string;
+    userId: string;
   }): Promise<{ success: boolean; issue: Issue; message: string }> {
-    const formData = new FormData();
-    formData.append('user_id', data.user_id);
-    
-    // Send as JSON in the body for simplicity
     return this.request('/issues', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
         title: data.title,
         description: data.description,
-        category_id: data.category_id,
-        image_base64: data.image_base64,
-        voice_base64: data.voice_base64,
-        location_lat: data.location_lat,
-        location_long: data.location_long,
+        categoryId: data.categoryId,
+        imageBase64: data.imageBase64,
+        voiceBase64: data.voiceBase64,
+        locationLat: data.locationLat,
+        locationLong: data.locationLong,
         address: data.address,
+        userId: data.userId,
       }),
     });
   }
 
   // Voting
   async voteIssue(issueId: string, userId: string): Promise<{ success: boolean; voted: boolean; message: string }> {
-    const formData = new FormData();
-    formData.append('user_id', userId);
-
     return this.request(`/issues/${issueId}/vote`, {
       method: 'POST',
-      body: formData,
+      body: JSON.stringify({ userId }),
     });
   }
 
@@ -137,17 +128,12 @@ class ApiService {
   }
 
   async addComment(issueId: string, message: string, userId: string): Promise<{ success: boolean; comment: Comment; message: string }> {
-    const formData = new FormData();
-    formData.append('user_id', userId);
-
     return this.request(`/issues/${issueId}/comments`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
-        issue_id: issueId,
+        issueId: issueId,
         message: message,
+        userId: userId,
       }),
     });
   }
