@@ -1,0 +1,140 @@
+{
+  "passed": 12,
+  "failed": 6,
+  "errors": [
+    "Issue Creation - Basic: HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+    "Issue Creation - With Image: HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+    "Issue Creation - With Voice: HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+    "Individual Issue Retrieval - Setup: No test issues available",
+    "Voting System - Setup: Missing test user or issues",
+    "Comments System - Setup: Missing test user or issues"
+  ],
+  "details": [
+    {
+      "test": "Health Check",
+      "status": "PASS",
+      "message": "API is healthy and responding",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:50.289239"
+    },
+    {
+      "test": "User Registration - Valid",
+      "status": "PASS",
+      "message": "User registered successfully: testuser_66d9bad8@example.com",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:50.301436"
+    },
+    {
+      "test": "User Registration - Duplicate Email",
+      "status": "PASS",
+      "message": "Correctly rejected duplicate email",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:50.311766"
+    },
+    {
+      "test": "User Registration - Invalid Email",
+      "status": "PASS",
+      "message": "Response: HTTP 200",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:50.362475"
+    },
+    {
+      "test": "User Login - Valid",
+      "status": "PASS",
+      "message": "Login successful for testuser_66d9bad8@example.com",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:50.372762"
+    },
+    {
+      "test": "User Login - Invalid Credentials",
+      "status": "PASS",
+      "message": "Correctly rejected invalid credentials",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:51.005285"
+    },
+    {
+      "test": "Category Initialization",
+      "status": "PASS",
+      "message": "Categories initialized successfully",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:51.018332"
+    },
+    {
+      "test": "Category Retrieval",
+      "status": "PASS",
+      "message": "Retrieved 7 categories",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:51.027287"
+    },
+    {
+      "test": "Category Content Validation",
+      "status": "PASS",
+      "message": "All expected categories present",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:51.027305"
+    },
+    {
+      "test": "Issue Creation - Basic",
+      "status": "FAIL",
+      "message": "HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:51.075402"
+    },
+    {
+      "test": "Issue Creation - With Image",
+      "status": "FAIL",
+      "message": "HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:51.083089"
+    },
+    {
+      "test": "Issue Creation - With Voice",
+      "status": "FAIL",
+      "message": "HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.594962"
+    },
+    {
+      "test": "Issue Retrieval - Basic",
+      "status": "PASS",
+      "message": "Retrieved 0 issues",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.604031"
+    },
+    {
+      "test": "Issue Retrieval - Location Filter",
+      "status": "PASS",
+      "message": "Location filtering returned 0 issues",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.612616"
+    },
+    {
+      "test": "Issue Retrieval - Category Filter",
+      "status": "PASS",
+      "message": "Category filtering returned 0 issues",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.661607"
+    },
+    {
+      "test": "Individual Issue Retrieval - Setup",
+      "status": "FAIL",
+      "message": "No test issues available",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.661629"
+    },
+    {
+      "test": "Voting System - Setup",
+      "status": "FAIL",
+      "message": "Missing test user or issues",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.661636"
+    },
+    {
+      "test": "Comments System - Setup",
+      "status": "FAIL",
+      "message": "Missing test user or issues",
+      "details": null,
+      "timestamp": "2025-09-21T09:56:52.661641"
+    }
+  ]
+}
