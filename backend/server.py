@@ -316,13 +316,16 @@ async def get_issue(issue_id: str):
     
     return issue
 
+class VoteRequest(BaseModel):
+    user_id: str
+
 # Voting
 @api_router.post("/issues/{issue_id}/vote", response_model=Dict[str, Any])
-async def vote_issue(issue_id: str, user_id: str = Form(...)):
+async def vote_issue(issue_id: str, vote_data: VoteRequest):
     # Check if user already voted
     existing_vote = await db.votes.find_one({
         "issue_id": issue_id,
-        "user_id": user_id
+        "user_id": vote_data.user_id
     })
     
     if existing_vote:
@@ -335,7 +338,7 @@ async def vote_issue(issue_id: str, user_id: str = Form(...)):
         return {"success": True, "voted": False, "message": "Vote removed"}
     else:
         # Add vote
-        vote = Vote(issue_id=issue_id, user_id=user_id)
+        vote = Vote(issue_id=issue_id, user_id=vote_data.user_id)
         await db.votes.insert_one(vote.dict())
         await db.issues.update_one(
             {"id": issue_id},
