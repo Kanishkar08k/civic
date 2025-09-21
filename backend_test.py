@@ -278,14 +278,13 @@ class CIRSBackendTester:
             "image_base64": sample_image_b64
         })
         
+        # Add user_id to the issue data as the frontend does
+        issue_with_image_and_user = issue_with_image.copy()
+        issue_with_image_and_user["user_id"] = self.test_user["id"]
+        
         try:
-            # Create multipart form data with JSON and form fields
-            files = {
-                'issue_data': (None, json.dumps(issue_with_image), 'application/json'),
-                'user_id': (None, self.test_user["id"])
-            }
             response = self.session.post(f"{self.base_url}/issues", 
-                                       files=files, 
+                                       json=issue_with_image_and_user, 
                                        timeout=TIMEOUT)
             if response.status_code == 200:
                 data = response.json()
