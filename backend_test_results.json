@@ -2,9 +2,9 @@
   "passed": 12,
   "failed": 6,
   "errors": [
-    "Issue Creation - Basic: HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
-    "Issue Creation - With Image: HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
-    "Issue Creation - With Voice: HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+    "Issue Creation - Basic: HTTP 422: {\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"{\\\"title\\\": \\\"Pothole on Main Street\\\", \\\"description\\\": \\\"Large pothole causing traffic issues near the intersection\\\", \\\"category_id\\\": \\\"68cfcc365606c05ac08c3ed5\\\", \\\"location_lat\\\": 40.7128, \\\"location_long\\\": -74.006, \\\"address\\\": \\\"123 Main Street, New York, NY\\\"}\",\"url\":\"https://errors.pydantic.dev/2.11/v/model_attributes_type\"}]}",
+    "Issue Creation - With Image: HTTP 422: {\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"{\\\"title\\\": \\\"Broken streetlight with photo\\\", \\\"description\\\": \\\"Large pothole causing traffic issues near the intersection\\\", \\\"category_id\\\": \\\"68cfcc365606c05ac08c3ed5\\\", \\\"location_lat\\\": 40.7128, \\\"location_long\\\": -74.006, \\\"address\\\": \\\"123 Main Street, New York, NY\\\", \\\"image_base64\\\": \\\"ZmFrZV9pbWFnZV9kYXRh\\\"}\",\"url\":\"https://errors.pydantic.dev/2.11/v/model_attributes_type\"}]}",
+    "Issue Creation - With Voice: HTTP 422: {\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"{\\\"title\\\": \\\"Noise complaint with voice note\\\", \\\"description\\\": \\\"Large pothole causing traffic issues near the intersection\\\", \\\"category_id\\\": \\\"68cfcc365606c05ac08c3ed5\\\", \\\"location_lat\\\": 40.7128, \\\"location_long\\\": -74.006, \\\"address\\\": \\\"123 Main Street, New York, NY\\\", \\\"voice_base64\\\": \\\"ZmFrZV9hdWRpb19kYXRh\\\"}\",\"url\":\"https://errors.pydantic.dev/2.11/v/model_attributes_type\"}]}",
     "Individual Issue Retrieval - Setup: No test issues available",
     "Voting System - Setup: Missing test user or issues",
     "Comments System - Setup: Missing test user or issues"
@@ -15,126 +15,126 @@
       "status": "PASS",
       "message": "API is healthy and responding",
       "details": null,
-      "timestamp": "2025-09-21T09:56:50.289239"
+      "timestamp": "2025-09-21T09:58:14.058721"
     },
     {
       "test": "User Registration - Valid",
       "status": "PASS",
-      "message": "User registered successfully: testuser_66d9bad8@example.com",
+      "message": "User registered successfully: testuser_4bd7c7e3@example.com",
       "details": null,
-      "timestamp": "2025-09-21T09:56:50.301436"
+      "timestamp": "2025-09-21T09:58:14.071931"
     },
     {
       "test": "User Registration - Duplicate Email",
       "status": "PASS",
       "message": "Correctly rejected duplicate email",
       "details": null,
-      "timestamp": "2025-09-21T09:56:50.311766"
+      "timestamp": "2025-09-21T09:58:14.082372"
     },
     {
       "test": "User Registration - Invalid Email",
       "status": "PASS",
-      "message": "Response: HTTP 200",
+      "message": "Response: HTTP 400",
       "details": null,
-      "timestamp": "2025-09-21T09:56:50.362475"
+      "timestamp": "2025-09-21T09:58:14.132480"
     },
     {
       "test": "User Login - Valid",
       "status": "PASS",
-      "message": "Login successful for testuser_66d9bad8@example.com",
+      "message": "Login successful for testuser_4bd7c7e3@example.com",
       "details": null,
-      "timestamp": "2025-09-21T09:56:50.372762"
+      "timestamp": "2025-09-21T09:58:14.145371"
     },
     {
       "test": "User Login - Invalid Credentials",
       "status": "PASS",
       "message": "Correctly rejected invalid credentials",
       "details": null,
-      "timestamp": "2025-09-21T09:56:51.005285"
+      "timestamp": "2025-09-21T09:58:14.159782"
     },
     {
       "test": "Category Initialization",
       "status": "PASS",
       "message": "Categories initialized successfully",
       "details": null,
-      "timestamp": "2025-09-21T09:56:51.018332"
+      "timestamp": "2025-09-21T09:58:14.216470"
     },
     {
       "test": "Category Retrieval",
       "status": "PASS",
       "message": "Retrieved 7 categories",
       "details": null,
-      "timestamp": "2025-09-21T09:56:51.027287"
+      "timestamp": "2025-09-21T09:58:14.320668"
     },
     {
       "test": "Category Content Validation",
       "status": "PASS",
       "message": "All expected categories present",
       "details": null,
-      "timestamp": "2025-09-21T09:56:51.027305"
+      "timestamp": "2025-09-21T09:58:14.320686"
     },
     {
       "test": "Issue Creation - Basic",
       "status": "FAIL",
-      "message": "HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+      "message": "HTTP 422: {\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"{\\\"title\\\": \\\"Pothole on Main Street\\\", \\\"description\\\": \\\"Large pothole causing traffic issues near the intersection\\\", \\\"category_id\\\": \\\"68cfcc365606c05ac08c3ed5\\\", \\\"location_lat\\\": 40.7128, \\\"location_long\\\": -74.006, \\\"address\\\": \\\"123 Main Street, New York, NY\\\"}\",\"url\":\"https://errors.pydantic.dev/2.11/v/model_attributes_type\"}]}",
       "details": null,
-      "timestamp": "2025-09-21T09:56:51.075402"
+      "timestamp": "2025-09-21T09:58:14.329050"
     },
     {
       "test": "Issue Creation - With Image",
       "status": "FAIL",
-      "message": "HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+      "message": "HTTP 422: {\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"{\\\"title\\\": \\\"Broken streetlight with photo\\\", \\\"description\\\": \\\"Large pothole causing traffic issues near the intersection\\\", \\\"category_id\\\": \\\"68cfcc365606c05ac08c3ed5\\\", \\\"location_lat\\\": 40.7128, \\\"location_long\\\": -74.006, \\\"address\\\": \\\"123 Main Street, New York, NY\\\", \\\"image_base64\\\": \\\"ZmFrZV9pbWFnZV9kYXRh\\\"}\",\"url\":\"https://errors.pydantic.dev/2.11/v/model_attributes_type\"}]}",
       "details": null,
-      "timestamp": "2025-09-21T09:56:51.083089"
+      "timestamp": "2025-09-21T09:58:14.378463"
     },
     {
       "test": "Issue Creation - With Voice",
       "status": "FAIL",
-      "message": "HTTP 422: {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Field required\",\"input\":null,\"url\":\"https://errors.pydantic.dev/2.11/v/missing\"}]}",
+      "message": "HTTP 422: {\"detail\":[{\"type\":\"model_attributes_type\",\"loc\":[\"body\",\"issue_data\"],\"msg\":\"Input should be a valid dictionary or object to extract fields from\",\"input\":\"{\\\"title\\\": \\\"Noise complaint with voice note\\\", \\\"description\\\": \\\"Large pothole causing traffic issues near the intersection\\\", \\\"category_id\\\": \\\"68cfcc365606c05ac08c3ed5\\\", \\\"location_lat\\\": 40.7128, \\\"location_long\\\": -74.006, \\\"address\\\": \\\"123 Main Street, New York, NY\\\", \\\"voice_base64\\\": \\\"ZmFrZV9hdWRpb19kYXRh\\\"}\",\"url\":\"https://errors.pydantic.dev/2.11/v/model_attributes_type\"}]}",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.594962"
+      "timestamp": "2025-09-21T09:58:14.387120"
     },
     {
       "test": "Issue Retrieval - Basic",
       "status": "PASS",
       "message": "Retrieved 0 issues",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.604031"
+      "timestamp": "2025-09-21T09:58:14.436972"
     },
     {
       "test": "Issue Retrieval - Location Filter",
       "status": "PASS",
       "message": "Location filtering returned 0 issues",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.612616"
+      "timestamp": "2025-09-21T09:58:14.523709"
     },
     {
       "test": "Issue Retrieval - Category Filter",
       "status": "PASS",
       "message": "Category filtering returned 0 issues",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.661607"
+      "timestamp": "2025-09-21T09:58:14.533827"
     },
     {
       "test": "Individual Issue Retrieval - Setup",
       "status": "FAIL",
       "message": "No test issues available",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.661629"
+      "timestamp": "2025-09-21T09:58:14.533849"
     },
     {
       "test": "Voting System - Setup",
       "status": "FAIL",
       "message": "Missing test user or issues",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.661636"
+      "timestamp": "2025-09-21T09:58:14.533855"
     },
     {
       "test": "Comments System - Setup",
       "status": "FAIL",
       "message": "Missing test user or issues",
       "details": null,
-      "timestamp": "2025-09-21T09:56:52.661641"
+      "timestamp": "2025-09-21T09:58:14.533861"
     }
   ]
 }
