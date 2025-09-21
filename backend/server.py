@@ -346,12 +346,17 @@ async def vote_issue(issue_id: str, vote_data: VoteRequest):
         )
         return {"success": True, "voted": True, "message": "Vote added"}
 
+class CommentCreateWithUser(BaseModel):
+    issue_id: str
+    message: str
+    user_id: str
+
 # Comments
 @api_router.post("/issues/{issue_id}/comments", response_model=Dict[str, Any])
-async def add_comment(issue_id: str, comment_data: CommentCreate, user_id: str = Form(...)):
+async def add_comment(issue_id: str, comment_data: CommentCreateWithUser):
     comment = Comment(
         issue_id=issue_id,
-        user_id=user_id,
+        user_id=comment_data.user_id,
         message=comment_data.message
     )
     
