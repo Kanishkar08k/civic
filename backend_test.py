@@ -247,14 +247,13 @@ class CIRSBackendTester:
             "user_id": self.test_user["id"]
         }
         
+        # Add user_id to the issue data as the frontend does
+        issue_data_with_user = issue_data.copy()
+        issue_data_with_user["user_id"] = self.test_user["id"]
+        
         try:
-            # Send as form data with JSON string
-            data = {
-                'user_id': self.test_user["id"]
-            }
             response = self.session.post(f"{self.base_url}/issues", 
-                                       json=issue_data,
-                                       data=data, 
+                                       json=issue_data_with_user, 
                                        timeout=TIMEOUT)
             if response.status_code == 200:
                 data = response.json()
