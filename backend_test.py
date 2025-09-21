@@ -501,8 +501,11 @@ class CIRSBackendTester:
         
         # Test voting on invalid issue
         try:
+            files = {
+                'user_id': (None, self.test_user["id"])
+            }
             response = self.session.post(f"{self.base_url}/issues/invalid-id/vote", 
-                                       data=form_data, timeout=TIMEOUT)
+                                       files=files, timeout=TIMEOUT)
             # Note: Backend might not validate issue existence for voting
             self.log_result("Voting System - Invalid Issue", True, 
                           f"Response: HTTP {response.status_code}")
