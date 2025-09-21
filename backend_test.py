@@ -531,9 +531,12 @@ class CIRSBackendTester:
         form_data = {"user_id": self.test_user["id"]}
         
         try:
+            files = {
+                'comment_data': (None, json.dumps(comment_data), 'application/json'),
+                'user_id': (None, self.test_user["id"])
+            }
             response = self.session.post(f"{self.base_url}/issues/{issue_id}/comments", 
-                                       json=comment_data, 
-                                       data=form_data, 
+                                       files=files, 
                                        timeout=TIMEOUT)
             if response.status_code == 200:
                 data = response.json()
